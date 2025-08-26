@@ -44,8 +44,11 @@ export default class MoviesList {
   }
 
   setupEvents() {
-    eventBus.on("select-page", (pageNumber) => {
+    eventBus.on("select-page", ([event, pageNumber, updateCurrentPage]) => {
       this.update(pageNumber);
+      updateCurrentPage(event, pageNumber);
     });
+
+    
   }
 }

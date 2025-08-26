@@ -29,8 +29,24 @@ export default class PaginationItem {
   }
 
   setupEventListeners(pageNumber) {
-    this.element.addEventListener("click", () => {
-      eventBus.emit("select-page", pageNumber);
+    this.element.addEventListener("click", (event) => {
+      eventBus.emit("select-page", [event, pageNumber, this.updateCurrentPage]);
     });
   }
+
+  updateCurrentPage(event, pageNumber) {
+      const target = event.target;
+      const pagination = target.closest(".pagination");
+      const paginationItems = pagination.querySelectorAll("[data-page]");
+
+      paginationItems.forEach((item) => {
+        if (item.classList.contains("active")) {
+          item.classList.remove("active");
+        }
+
+        if (+item.dataset.page === pageNumber) {
+          item.classList.add("active");
+        }
+      });
+    }
 }
