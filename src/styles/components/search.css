@@ -1,0 +1,33 @@
+.header__search {
+  position: relative;
+  text-align: center;
+}
+
+.header__search input {
+  width: 300px;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  padding: 0.3rem;
+  padding-left: 45px;
+  border-radius: 4px;
+  border: 2px solid var(--color-accent);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.header__search input:focus {
+  box-shadow: 0 0 0 3px var(--color-primary);
+}
+
+.header__search::before {
+  content: "🔍";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.header__search input::placeholder {
+  color: var(--color-text-light);
+}

@@ -1,0 +1,21 @@
+@media (max-width: 900px) {
+  #main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .movies {
+    border-right: none;
+    border-bottom: 2px solid var(--color-accent);
+    border-radius: 8px 8px 0 0;
+  }
+
+  .details {
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .movies {
+    padding: 5px;
+  }
+}

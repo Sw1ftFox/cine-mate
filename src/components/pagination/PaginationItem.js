@@ -1,25 +1,25 @@
 import ContainerGenerator from "@utils/containerGenerator";
 
-export default class Search {
-  constructor(containerSelector, className = "search") {
+export default class PaginationItem {
+  constructor(containerSelector, className = "pagination__item") {
     this.container = document.querySelector(containerSelector);
     this.className = className;
     this.element = null;
   }
 
-  render() {
+  render(pageNumber) {
     this.element = ContainerGenerator.generateContainer(
-      "form",
+      "div",
       this.className,
-      this.generateHTML()
+      this.generateHTML(pageNumber)
     );
 
     this.container.append(this.element);
   }
 
-  generateHTML() {
+  generateHTML(pageNumber) {
     return `
-      <input type="text" name="movie-title" placeholder="Введите название фильма...">
+      <div class="${this.className}-number">${pageNumber}</div>
     `;
   }
 }

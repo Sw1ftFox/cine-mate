@@ -1,0 +1,9 @@
+.movies {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  background-color: var(--color-background);
+  border-radius: 8px 0 0 8px;
+  border-right: 2px solid var(--color-accent);
+}
