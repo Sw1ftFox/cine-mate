@@ -1,6 +1,13 @@
 import { popularMovieIDs } from "@constants/Config";
 
+const API_KEY = process.env.OMDB_API_KEY;
+const API_URL = "https://www.omdbapi.com/";
+
 export default class ApiService {
+  constructor() {
+    this.apiKey = API_KEY;
+  }
+
   async fetchMovies() {
     try {
       const promises = popularMovieIDs.map((id) => this.fetchMovie(id));
@@ -15,7 +22,7 @@ export default class ApiService {
   async fetchMovie(id) {
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?i=${id}&apikey=295a8d47`
+        `${API_URL}?i=${id}&apikey=${this.apiKey}`
       );
 
       if (!response.ok) {

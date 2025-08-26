@@ -31,7 +31,9 @@ class App {
       this.movies = await this.apiService.fetchMovies();
 
       this.render();
-    } catch (err) {}
+    } catch (err) {
+      console.log(err.message);
+    }
   }
 }
 

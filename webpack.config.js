@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require('dotenv-webpack');
 const path = require("path");
 
 module.exports = {
@@ -7,6 +8,7 @@ module.exports = {
   output: {
     filename: "bundle[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   resolve: {
     alias: {
@@ -44,10 +46,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "index.html",
-    }),    
+    }),
     new MiniCssExtractPlugin({
       filename: "main[contenthash].css",
     }),
