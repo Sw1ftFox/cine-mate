@@ -1,4 +1,5 @@
 import ContainerGenerator from "@utils/containerGenerator";
+import { eventBus } from "@utils/eventBus";
 
 export default class PaginationItem {
   constructor(containerSelector, className = "pagination__item") {
@@ -14,6 +15,10 @@ export default class PaginationItem {
       this.generateHTML(pageNumber)
     );
 
+    this.element.dataset.page = pageNumber;
+
+    this.setupEventListeners(pageNumber);
+
     this.container.append(this.element);
   }
 
@@ -21,5 +26,11 @@ export default class PaginationItem {
     return `
       <div class="${this.className}-number">${pageNumber}</div>
     `;
+  }
+
+  setupEventListeners(pageNumber) {
+    this.element.addEventListener("click", () => {
+      eventBus.emit("select-page", pageNumber);
+    });
   }
 }

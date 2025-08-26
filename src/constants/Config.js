@@ -7,7 +7,7 @@ export const popularMovieIDs = [
   'tt0108052', // Schindler's List
   'tt0167260', // The Lord of the Rings: The Return of the King
   // 'tt0110912', // Pulp Fiction
-  // 'tt0120737', // The Lord of the Rings: The Fellowship of the Ring
+  'tt0120737', // The Lord of the Rings: The Fellowship of the Ring
   // 'tt0060196', // The Good, the Bad and the Ugly
   // 'tt0133093', // The Matrix
   // 'tt0109830', // Forrest Gump
