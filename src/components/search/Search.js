@@ -1,4 +1,5 @@
 import ContainerGenerator from "@utils/containerGenerator";
+import { eventBus } from "@utils/eventBus";
 
 export default class Search {
   constructor(containerSelector, className = "search") {
@@ -14,6 +15,8 @@ export default class Search {
       this.generateHTML()
     );
 
+    this.setupEventListeners();
+
     this.container.append(this.element);
   }
 
@@ -21,5 +24,12 @@ export default class Search {
     return `
       <input type="text" name="movie-title" placeholder="Введите название фильма...">
     `;
+  }
+
+  setupEventListeners() {
+    const input = this.element.querySelector("input");
+    input.addEventListener("input", () => {
+      eventBus.emit("search", input.value.toLowerCase());
+    });
   }
 }

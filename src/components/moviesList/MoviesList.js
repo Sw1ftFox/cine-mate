@@ -28,13 +28,13 @@ export default class MoviesList {
     });
   }
 
-  update(pageNumber) {
+  update(pageNumber, movies = this.movies) {
     this.element.innerHTML = "";
 
     const firstIndex = DEFAULT_COUNT_MOVIES * (pageNumber - 1);
     const lastIndex = DEFAULT_COUNT_MOVIES * pageNumber;
 
-    this.movies.map((movieData, index) => {
+    movies.map((movieData, index) => {
       if (index + 1 > firstIndex && index < lastIndex) {
         const movieElement = new Movie(`.${this.className}`);
         return movieElement.render(movieData);
@@ -49,6 +49,11 @@ export default class MoviesList {
       updateCurrentPage(event, pageNumber);
     });
 
-    
+    eventBus.on("search", (term) => {
+      const filtered = this.movies.filter((movie) =>
+        movie.Title.toLowerCase().includes(term)
+      );
+      this.update(1, filtered);
+    });
   }
 }

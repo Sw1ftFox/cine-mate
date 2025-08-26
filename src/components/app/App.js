@@ -29,7 +29,6 @@ class App {
   async loadMovies() {
     try {
       this.movies = await this.apiService.fetchMovies();
-      console.log(this.movies);
 
       this.render();
     } catch (err) {}
