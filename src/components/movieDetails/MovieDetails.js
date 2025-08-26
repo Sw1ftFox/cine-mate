@@ -13,7 +13,7 @@ export default class MovieDetails {
 
   render() {
     this.container.innerHTML = "";
-    
+
     this.element = ContainerGenerator.generateContainer(
       "main",
       this.className,
@@ -25,7 +25,11 @@ export default class MovieDetails {
 
   generateHTML() {
     if (!this.movie) {
-      return `skeleton`;
+      return `
+        <h3 class="skeleton__title"></h3>
+        <div class="skeleton__information"></div>
+        <div class="skeleton__group"></div>
+        <div class="skeleton__plot"></div>`;
     } else {
       return `
         <h3 class="${this.className}__title">${this.movie.Title}</h3>

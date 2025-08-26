@@ -1,0 +1,35 @@
+.skeleton__title {
+  width: 60%;
+  height: 30px;
+}
+.skeleton__information {
+  height: 30px;
+}
+.skeleton__group {
+  height: 50px;
+}
+.skeleton__plot {
+  height: 70px;
+}
+
+.skeleton__title,
+.skeleton__information,
+.skeleton__group,
+.skeleton__plot {
+  background: var(--color-accent);
+  border-radius: 12px;
+  animation: pulse 1.5s infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
